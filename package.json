@@ -9,7 +9,7 @@
   "main": "lib/main.js",
   "scripts": {
     "lint": "jshint lib test/lib",
-    "test": "bower install && karma start --single-run"
+    "test": "npm run-script lint && bower install && karma start --single-run"
   },
   "keywords": [
     "router",

@@ -1,4 +1,4 @@
-/* global define, describe, it, expect */
+/* global define, describe, it, expect, jasmine, beforeAll, afterEach */
 
 define(function (require) {
   var Router = require('lib/router'),

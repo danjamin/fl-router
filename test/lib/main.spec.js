@@ -21,7 +21,7 @@ define(function (require) {
 
       it('does not contain .RouteStore', function () {
         expect(main.RouteStore).toBeUndefined();
-      })
+      });
 
     });
 

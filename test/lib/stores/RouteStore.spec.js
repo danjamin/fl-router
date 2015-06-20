@@ -1,4 +1,4 @@
-/* global define, describe, it, expect */
+/* global define, describe, it, expect, afterEach */
 
 define(function (require) {
   var RouteStore = require('lib/stores/RouteStore');

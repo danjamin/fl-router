@@ -1,4 +1,4 @@
-/* global define, describe, it, expect */
+/* global define, describe, it, expect, beforeEach */
 
 define(function (require) {
   var RouteActions = require('lib/actions/RouteActions'),
