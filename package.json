@@ -1,0 +1,37 @@
+{
+  "name": "fl-router",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danjamin/fl-router.git"
+  },
+  "description": "Router for flux-like applications",
+  "main": "lib/main.js",
+  "scripts": {
+    "lint": "jshint lib test/lib",
+    "test": "bower install && karma start --single-run"
+  },
+  "keywords": [
+    "router",
+    "react",
+    "fluxlike"
+  ],
+  "author": "danjamin <e051ba3be@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine-core": "^2.3.4",
+    "jshint": "^2.8.0",
+    "karma": "^0.12.36",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "karma-requirejs": "^0.2.2",
+    "phantomjs": "^1.9.17",
+    "requirejs": "^2.1.18"
+  },
+  "dependencies": {
+    "backbone": "^1.2.1",
+    "fl-store": "git+https://github.com/danjamin/fl-store.git#0.1.0",
+    "jquery": "^2.1.4",
+    "underscore": "^1.8.3"
+  }
+}

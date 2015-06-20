@@ -1,0 +1,37 @@
+{
+  "name": "fl-router",
+  "version": "0.1.0",
+  "authors": [
+    "danjamin <e051ba3be@gmail.com>"
+  ],
+  "homepage": "https://github.com/danjamin/fl-router",
+  "description": "Router for flux-like applications",
+  "main": "lib/main.js",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "router",
+    "react",
+    "fluxlike"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "karma.conf.js",
+    "package.json"
+  ],
+  "dependencies": {
+    "underscore": "~1.8.3",
+    "backbone": "~1.2.1",
+    "fl-store": "https://github.com/danjamin/fl-store.git#0.1.0",
+    "jquery": "~2.1.4"
+  },
+  "devDependencies": {}
+}
