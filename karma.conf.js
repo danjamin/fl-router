@@ -10,20 +10,28 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine', 'requirejs'],
+    frameworks: ['systemjs', 'jasmine'],
+
+    systemjs: {
+      configFile: 'system.conf.js',
+
+      files: [
+        'lib/**/*.js',
+        'test/**/*.spec.js',
+
+        'bower_components/backbone/backbone.js',
+        'bower_components/fl-store/lib/**/*.js', // use the ES6 version
+        'bower_components/jquery/dist/jquery.js',
+        'bower_components/underscore/underscore.js'
+      ],
+
+      testFileSuffix: '.spec.js'
+    },
 
 
     // list of files / patterns to load in the browser
     // this is what karma will serve..
     files: [
-      {pattern: 'lib/**/*.js', included: false},
-      {pattern: 'bower_components/backbone/backbone.js', included: false},
-      {pattern: 'bower_components/jquery/dist/jquery.js', included: false},
-      {pattern: 'bower_components/underscore/underscore.js', included: false},
-      {pattern: 'bower_components/fl-store/index.js', included: false},
-      {pattern: 'test/**/*.spec.js', included: false},
-
-      'test/test-main.js'
     ],
 
 
@@ -41,7 +49,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['dots'],
 
 
     // web server port

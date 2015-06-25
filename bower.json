@@ -6,11 +6,12 @@
   ],
   "homepage": "https://github.com/danjamin/fl-router",
   "description": "Router for flux-like applications",
-  "main": "lib/main.js",
+  "main": "dist/fl-router.js",
   "moduleType": [
     "amd",
     "globals",
-    "node"
+    "node",
+    "es6"
   ],
   "keywords": [
     "router",
@@ -24,13 +25,15 @@
     "bower_components",
     "test",
     "tests",
+    "Brocfile.js",
     "karma.conf.js",
+    "system.conf.js",
     "package.json"
   ],
   "dependencies": {
     "underscore": "~1.8.3",
     "backbone": "~1.2.1",
-    "fl-store": "https://github.com/danjamin/fl-store.git#0.1.0",
+    "fl-store": "https://github.com/danjamin/fl-store.git#0.1.1",
     "jquery": "~2.1.4"
   },
   "devDependencies": {}
