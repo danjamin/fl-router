@@ -6,10 +6,11 @@
     "url": "git+https://github.com/danjamin/fl-router.git"
   },
   "description": "Router for flux-like applications",
-  "main": "lib/main.js",
+  "main": "dist/fl-router.js",
   "scripts": {
+    "build": "rm -Rf dist && broccoli build dist",
     "lint": "jshint lib test/lib",
-    "test": "npm run-script lint && bower install && karma start --single-run"
+    "test": "karma start"
   },
   "keywords": [
     "router",
@@ -19,18 +20,25 @@
   "author": "danjamin <e051ba3be@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "^5.6.7",
+    "broccoli": "^0.16.3",
+    "broccoli-cli": "^1.0.0",
+    "broccoli-es6modules": "^1.0.0",
+    "broccoli-funnel": "^0.2.3",
+    "es6-module-loader": "^0.17.3",
     "jasmine-core": "^2.3.4",
     "jshint": "^2.8.0",
     "karma": "^0.12.36",
     "karma-jasmine": "^0.3.5",
     "karma-phantomjs-launcher": "^0.2.0",
-    "karma-requirejs": "^0.2.2",
+    "karma-systemjs": "^0.5.0",
     "phantomjs": "^1.9.17",
-    "requirejs": "^2.1.18"
+    "phantomjs-polyfill": "0.0.1",
+    "systemjs": "^0.18.3"
   },
   "dependencies": {
     "backbone": "^1.2.1",
-    "fl-store": "git+https://github.com/danjamin/fl-store.git#0.1.0",
+    "fl-store": "git+https://github.com/danjamin/fl-store.git#0.1.1",
     "jquery": "^2.1.4",
     "underscore": "^1.8.3"
   }

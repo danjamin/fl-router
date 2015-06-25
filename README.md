@@ -1,4 +1,4 @@
-# fl-router
+# fl-router [![Build Status](https://travis-ci.org/danjamin/fl-router.svg)](https://travis-ci.org/danjamin/fl-router)
 
 ## USE
 
@@ -10,13 +10,13 @@ Note: this is still in development and not registered to **npm** or **bower** ye
 via [bower](http://bower.io):
 
 ```sh
-$ bower install https://github.com/danjamin/fl-router.git#0.1.0
+$ bower install --save https://github.com/danjamin/fl-router.git#0.1.0
 ```
 
 OR via [npm](http://npmjs.com):
 
 ```sh
-$ npm install https://github.com/danjamin/fl-router.git#0.1.0
+$ npm install --save https://github.com/danjamin/fl-router.git#0.1.0
 ```
 
 
@@ -29,11 +29,27 @@ $ npm install
 $ bower install
 ```
 
-### linting and testing
+### linting
+
+```sh
+$ npm run lint=
+```
+
+### testing
 
 ```sh
 $ npm test
 ```
+
+### building
+
+```sh
+$ npm run build
+```
+
+update **bower.json** and **package.json** versions
+tag semver and push to origin
+
 
 ### todo
 
