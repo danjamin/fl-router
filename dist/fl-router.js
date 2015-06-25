@@ -105,17 +105,16 @@
     start: start
   };
 
+  exports.Router = Router;
+
   var RouteActions = {
     linkTo: function (name, params) {
       RouteStore.setRoute(name, params);
     }
   };
 
-  var main = {
-    Router: Router,
-    RouteActions: RouteActions
-  };
+  exports.RouteActions = RouteActions;
 
-  exports['default'] = main;
+
 
 }));

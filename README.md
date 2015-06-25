@@ -10,13 +10,13 @@ Note: this is still in development and not registered to **npm** or **bower** ye
 via [bower](http://bower.io):
 
 ```sh
-$ bower install --save https://github.com/danjamin/fl-router.git#0.1.1
+$ bower install --save https://github.com/danjamin/fl-router.git#0.1.2
 ```
 
 OR via [npm](http://npmjs.com):
 
 ```sh
-$ npm install --save https://github.com/danjamin/fl-router.git#0.1.1
+$ npm install --save https://github.com/danjamin/fl-router.git#0.1.2
 ```
 
 
@@ -56,4 +56,4 @@ tag semver and push to origin
 - [ ] Clean up code
 - [ ] Add more unit tests
 - [ ] Bring in flow
-- [ ] Setup travis CI
+- [x] Setup travis CI
