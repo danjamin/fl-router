@@ -32,7 +32,7 @@ $ bower install
 ### linting
 
 ```sh
-$ npm run lint=
+$ npm run lint
 ```
 
 ### testing
