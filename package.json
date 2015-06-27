@@ -8,9 +8,10 @@
   "description": "Router for flux-like applications",
   "main": "dist/fl-router.js",
   "scripts": {
-    "build": "rm -Rf dist && broccoli build dist",
+    "build": "npm run lint && npm run test-single-run && rm -Rf dist && broccoli build dist",
     "lint": "jshint lib test/lib",
-    "test": "karma start"
+    "test": "karma start",
+    "test-single-run": "karma start --single-run"
   },
   "keywords": [
     "router",
