@@ -20,6 +20,7 @@ module.exports = function(config) {
         'test/**/*.spec.js',
 
         'bower_components/backbone/backbone.js',
+        'bower_components/flux/dist/Flux.js',
         'bower_components/fl-store/lib/**/*.js', // use the ES6 version
         'bower_components/jquery/dist/jquery.js',
         'bower_components/underscore/underscore.js'

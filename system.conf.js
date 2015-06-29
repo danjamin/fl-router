@@ -8,6 +8,7 @@ System.config({
     'system-polyfills': 'node_modules/systemjs/dist/system-polyfills.js',
 
     backbone: 'bower_components/backbone/backbone.js',
+    flux: 'bower_components/flux/dist/Flux.js',
     'fl-store': 'bower_components/fl-store/lib/main.js',
     jquery: 'bower_components/jquery/dist/jquery.js',
     underscore: 'bower_components/underscore/underscore.js'

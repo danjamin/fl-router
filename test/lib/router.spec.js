@@ -1,7 +1,6 @@
 /* global describe, it, expect, jasmine, beforeAll, afterEach */
 
 import Router from 'lib/router.js';
-import RouteActions from 'lib/actions/RouteActions.js';
 
 describe('Router', function () {
   var routes,
@@ -35,6 +34,8 @@ describe('Router', function () {
   it('has the right properties', function () {
     expect(Router).toBeDefined();
     expect(Router.router).toBeDefined();
+    expect(Router.linkTo).toBeDefined();
+    expect(typeof Router.linkTo === 'function').toBe(true);
     expect(typeof Router.start === 'function').toBe(true);
   });
 
@@ -49,7 +50,7 @@ describe('Router', function () {
   });
 
   it('should NOT linkTo index when there already', function () {
-    RouteActions.linkTo('index');
+    Router.linkTo('index');
 
     // index route called once
     expect(IndexRoute).not.toHaveBeenCalled();
@@ -59,7 +60,7 @@ describe('Router', function () {
   });
 
   it('should linkTo mailbox from index', function () {
-    RouteActions.linkTo('mailbox', {mailboxId: 5});
+    Router.linkTo('mailbox', {mailboxId: 5});
 
     // index route called once
     expect(IndexRoute).not.toHaveBeenCalled();
@@ -69,7 +70,7 @@ describe('Router', function () {
   });
 
   it('should linkTo index from mailbox', function () {
-    RouteActions.linkTo('index');
+    Router.linkTo('index');
 
     // index route called once
     expect(IndexRoute).toHaveBeenCalledWith(null);
@@ -79,7 +80,7 @@ describe('Router', function () {
   });
 
   it('should linkTo message from mailbox', function () {
-    RouteActions.linkTo('message', {
+    Router.linkTo('message', {
       mailboxId: 5,
       messageId: 2
     });
@@ -92,7 +93,7 @@ describe('Router', function () {
   });
 
   it('should linkTo mailbox from message', function () {
-    RouteActions.linkTo('mailbox', {mailboxId: 5});
+    Router.linkTo('mailbox', {mailboxId: 5});
 
     // index route called once
     expect(IndexRoute).not.toHaveBeenCalled();
