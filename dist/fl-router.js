@@ -1,59 +1,37 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('fl-store'), require('underscore'), require('backbone')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'fl-store', 'underscore', 'backbone'], factory) :
-  factory((global.FLRouter = {}), global.Store, global._, global.Backbone)
-}(this, function (exports, Store, _, Backbone) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('flux'), require('backbone'), require('fl-store'), require('underscore')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'flux', 'backbone', 'fl-store', 'underscore'], factory) :
+  factory((global.FLRouter = {}), global.flux, global.Backbone, global.Store, global._)
+}(this, function (exports, flux, Backbone, Store, _) { 'use strict';
 
+  Backbone = ('default' in Backbone ? Backbone['default'] : Backbone);
   Store = ('default' in Store ? Store['default'] : Store);
   _ = ('default' in _ ? _['default'] : _);
-  Backbone = ('default' in Backbone ? Backbone['default'] : Backbone);
 
-  var _routeName,
-    _routeParams;
+  var RouteDispatcher = new flux.Dispatcher();
 
-  var RouteStore = _.extend({}, Store, {
-    setRoute: function (name, params) {
-      if (!name) {
-        throw 'RouteStore#setRoute requires a name';
-      }
+  var RouteActionTypes = {
+    ROUTE_CHANGED: 'ROUTE_CHANGED'
+  };
 
-      if (typeof name !== 'string') {
-        throw 'RouteStore#setRoute name must be a string';
-      }
+  var RouteActionCreators = {
+    changeRoute: function (name /*, params... */) {
+      var params = Array.prototype.slice.call(arguments, 1);
 
-      _routeName = name;
-      _routeParams = params;
-      this.emitChange();
-    },
-
-    clearRoute: function () {
-      _routeName = undefined;
-      _routeParams = undefined;
-    },
-
-    getRouteName: function () {
-      return _routeName;
-    },
-
-    getRouteParams: function () {
-      return _routeParams;
+      RouteDispatcher.dispatch({
+        type: RouteActionTypes.ROUTE_CHANGED,
+        name: name,
+        params: params
+      });
     }
-  });
+  };
 
   var router,
     start,
     routes,
-    _linkTo,
-    _onChange;
+    linkTo;
 
   router = new Backbone.Router();
-
-  function getStateFromStores() {
-    return {
-      routeName: RouteStore.getRouteName(),
-      routeParams: RouteStore.getRouteParams()
-    };
-  }
 
   start = function (routesConfig) {
     routes = routesConfig;
@@ -63,6 +41,7 @@
       if (routes.hasOwnProperty(name)) {
         router.route(routes[name].path, name);
         router.on('route:' + name, routes[name].route);
+        router.on('route:' + name, RouteActionCreators.changeRoute.bind(this, name));
       }
     }
 
@@ -70,13 +49,10 @@
       pushState: false,
       root: "/"
     });
-
-    // listen for changes to the route store
-    RouteStore.addChangeListener(_onChange);
   };
 
   // TODO: write this better!! handle edge cases
-  _linkTo = function (name, params) {
+  linkTo = function (name, paramsObject) {
     var newRoute;
 
     if (!routes.hasOwnProperty(name)) {
@@ -86,34 +62,56 @@
     newRoute = routes[name].path;
 
     // replace each param in the route by name
-    for (var paramName in params) {
-      if (params.hasOwnProperty(paramName)) {
-        newRoute = newRoute.replace(':' + paramName, params[paramName]);
+    for (var paramName in paramsObject) {
+      if (paramsObject.hasOwnProperty(paramName)) {
+        newRoute = newRoute.replace(':' + paramName, paramsObject[paramName]);
       }
     }
 
     router.navigate(newRoute, {trigger: true});
   };
 
-  _onChange = function () {
-    var state = getStateFromStores();
-    _linkTo(state.routeName, state.routeParams);
-  };
-
   var Router = {
     router: router,
+    linkTo: linkTo,
     start: start
   };
 
   exports.Router = Router;
 
-  var RouteActions = {
-    linkTo: function (name, params) {
-      RouteStore.setRoute(name, params);
-    }
-  };
+  var RouteStore;
 
-  exports.RouteActions = RouteActions;
+  var _routeName,
+    _routeParamsArray;
+
+  function _setRoute(name, params) {
+    _routeName = name;
+    _routeParamsArray = params;
+  }
+
+  RouteStore = _.extend({}, Store, {
+    getRouteName: function () {
+      return _routeName;
+    },
+
+    getRouteParams: function () {
+      return _routeParamsArray;
+    }
+  });
+
+  RouteStore.dispatchToken = RouteDispatcher.register(function (action) {
+    switch (action.type) {
+      case RouteActionTypes.ROUTE_CHANGED:
+        _setRoute(action.name, action.params);
+        RouteStore.emitChange();
+        break;
+
+      default:
+        // do nothing
+    }
+  });
+
+  exports.RouteStore = RouteStore;
 
 
 
