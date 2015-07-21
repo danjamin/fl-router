@@ -22,7 +22,8 @@
   "ignore": [
     "*",
     "!dist/fl-router.js",
-    "!README.md"
+    "!README.md",
+    "!LICENSE"
   ],
   "dependencies": {
     "underscore": "~1.8.3",
