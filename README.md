@@ -56,7 +56,7 @@ tag semver and push to origin
 - [ ] Clean up code
 - [ ] Add more unit tests
 - [ ] Bring in flow
-- [ ] linkTo component
+- [x] linkTo component
 - [ ] document better
 - [ ] show example usage
 - [x] Setup travis CI
