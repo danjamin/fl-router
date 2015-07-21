@@ -1,4 +1,7 @@
+/* global require, module */
+
 var ES6Modules = require('broccoli-es6modules'),
+  filterReact = require('broccoli-react'),
   Funnel = require('broccoli-funnel');
 
 var moduleName = 'FLRouter',
@@ -6,6 +9,12 @@ var moduleName = 'FLRouter',
 
 var tree = 'lib';
 
+tree = filterReact(tree, {
+  extensions: ['js'],
+  transform: {
+    es6module: true
+  }
+});
 tree = new ES6Modules(tree, {
   format: 'umd',
   bundleOptions: {
