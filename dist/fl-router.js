@@ -121,6 +121,7 @@
     getURLFromRoute,
     isMatch,
     linkTo,
+    rewriteTo,
     beforeEach,
     afterEach,
     clearEach;
@@ -239,6 +240,18 @@
   };
 
   /**
+   * Rewrites route, url, and params based on a route by name, passing in the array of parameters.
+   * Similar to linkTo -- except that browser location and history are unaffected
+   *
+   * @param string name The name of the route to rewrite to.
+   * @param array params The list of parameters include in the rewritten URL
+   */
+  rewriteTo = function (name, params) {
+    var url = getURLFromRoute(name, params);
+    RouteActionCreators.changeRoute(url, name, params);
+  };
+
+  /**
    * Register a callback to be invoked before each route.
    * This callback will be passed: name {string}, params {array}
    * @param func callback
@@ -246,7 +259,6 @@
   beforeEach = function (callback) {
     _beforeCallbacks.push(callback);
   };
-
 
   /**
    * Register a callback to be invoked after each route.
@@ -268,8 +280,7 @@
 
   // Trigger changeRoute after each route
   afterEach(function (name, params) {
-    var url = getURLFromRoute(name, params);
-    RouteActionCreators.changeRoute(url, name, params);
+    rewriteTo(name, params);
   });
 
   var Router = {
@@ -277,6 +288,7 @@
     getURLFromRoute: getURLFromRoute,
     isMatch: isMatch,
     linkTo: linkTo,
+    rewriteTo: rewriteTo,
     beforeEach: beforeEach,
     afterEach: afterEach,
     clearEach: clearEach
