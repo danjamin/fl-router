@@ -4,16 +4,8 @@
 
 ### install
 
-Note: this is still in development and not registered to **npm** or **bower** yet.
+Note: this is still in development and not published to **npm** yet.
       So keep this in mind and install via the Git URL for now.
-
-via [bower](http://bower.io):
-
-```sh
-$ bower install --save https://github.com/danjamin/fl-router.git#0.1.7
-```
-
-OR via [npm](http://npmjs.com):
 
 ```sh
 $ npm install --save https://github.com/danjamin/fl-router.git#0.1.7
@@ -25,8 +17,11 @@ $ npm install --save https://github.com/danjamin/fl-router.git#0.1.7
 ### install dependencies
 
 ```sh
+$ npm install -g babel mocha broccoli-cli
+```
+
+```sh
 $ npm install
-$ bower install
 ```
 
 ### linting
@@ -37,8 +32,28 @@ $ npm run lint
 
 ### testing
 
+Transpile and test once:
+
 ```sh
 $ npm test
+```
+
+Watch transpilation:
+
+```sh
+$ ./scripts/transpile watch
+```
+
+Run test after each change:
+
+```sh
+$ ./scripts/test
+```
+
+Optionally, you can filter the tests:
+
+```sh
+$ ./scripts/test RouteStore
 ```
 
 ### building
@@ -47,16 +62,16 @@ $ npm test
 $ npm run build
 ```
 
-update **bower.json** and **package.json** versions
+update **package.json** version
 tag semver and push to origin
 
 
 ### todo
 
+- [x] linkTo component
+- [x] Setup travis CI
 - [ ] Clean up code
 - [ ] Add more unit tests
 - [ ] Bring in flow
-- [x] linkTo component
 - [ ] document better
 - [ ] show example usage
-- [x] Setup travis CI

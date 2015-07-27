@@ -1,0 +1,5 @@
+#!/bin/bash
+
+binPath=./node_modules/.bin
+
+$binPath/jsxhint '*.js' 'lib/*.js' 'lib/**/*.js'
