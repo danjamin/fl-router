@@ -1,0 +1,10 @@
+#!/bin/bash
+
+out=dist
+
+./scripts/lint || { exit 1; }
+./scripts/transpile || { exit 1; }
+./scripts/test || { exit 1; }
+
+rm -rf $out
+broccoli build $out

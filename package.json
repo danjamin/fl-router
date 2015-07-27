@@ -8,10 +8,9 @@
   "description": "Router for flux-like applications",
   "main": "dist/fl-router.js",
   "scripts": {
-    "transpile": "rm -rf _transpiled && babel lib --out-dir _transpiled",
-    "build": "npm run lint && npm run test && rm -rf dist && broccoli build dist",
-    "lint": "jsxhint '*.js' 'lib/*.js' 'lib/**/*.js'",
-    "test": "npm run transpile && mocha --opts mocha.opts"
+    "build": "./scripts/build",
+    "lint": "./scripts/lint",
+    "test": "./scripts/transpile && ./scripts/test"
   },
   "keywords": [
     "router",
@@ -21,28 +20,23 @@
   "author": "danjamin <e051ba3be@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel": "^5.6.23",
     "babel-core": "^5.7.4",
-    "broccoli": "^0.16.3",
-    "broccoli-cli": "^1.0.0",
-    "broccoli-es6modules": "^1.0.0",
-    "broccoli-funnel": "^0.2.3",
+    "broccoli": "^0.16.4",
+    "broccoli-es6modules": "^1.0.1",
     "broccoli-react": "^0.7.1",
-    "es6-module-loader": "^0.17.3",
     "expect.js": "^0.3.1",
     "injectr": "^0.5.1",
     "jsdom": "^3.1.2",
     "jsxhint": "^0.12.1",
-    "mocha": "^2.2.5",
     "sinon": "^1.15.4"
   },
   "dependencies": {
-    "backbone": "^1.2.1",
-    "fl-store": "git+https://github.com/danjamin/fl-store.git#0.1.2",
+    "fl-store": "https://github.com/danjamin/fl-store/tarball/0.1.2",
     "flux": "^2.0.3",
-    "jquery": "^2.1.4",
+    "location-bar": "^2.0.0",
+    "object-assign": "^3.0.0",
     "react": "^0.13.3",
-    "underscore": "^1.8.3"
+    "route-recognizer": "^0.1.9"
   },
   "babel": {
     "blacklist": []

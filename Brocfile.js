@@ -1,11 +1,7 @@
 /* global require, module */
 
 var ES6Modules = require('broccoli-es6modules'),
-  filterReact = require('broccoli-react'),
-  Funnel = require('broccoli-funnel');
-
-var moduleName = 'FLRouter',
-  fileName = 'fl-router';
+  filterReact = require('broccoli-react');
 
 var tree = 'lib';
 
@@ -16,25 +12,13 @@ tree = filterReact(tree, {
   }
 });
 tree = new ES6Modules(tree, {
-  format: 'umd',
+  format: 'cjs',
   bundleOptions: {
     entry: 'main.js',
-    name: moduleName
+    name: 'fl-router'
   },
   esperantoOptions: {
     strict: true
-  }
-});
-
-tree = new Funnel(tree, {
-  destDir: '',
-
-  getDestinationPath: function(relativePath) {
-    if (relativePath === moduleName + '.js') {
-      return fileName + '.js';
-    }
-
-    return relativePath;
   }
 });
 

@@ -1,2 +1,3 @@
 *
-!dist/fl-router.js
+!dist/*.js
+!dist/**/*.js
