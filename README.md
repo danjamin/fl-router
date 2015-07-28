@@ -8,7 +8,7 @@ Note: this is still in development and not published to **npm** yet.
       So keep this in mind and install via the Git URL for now.
 
 ```sh
-$ npm install --save https://github.com/danjamin/fl-router.git#0.1.7
+$ npm install --save https://github.com/danjamin/fl-router.git#0.1.9
 ```
 
 

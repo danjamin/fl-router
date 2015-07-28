@@ -386,6 +386,9 @@ var LinkTo = React.createClass({
     // optionally add params
     params: React.PropTypes.array,
 
+    // optionally set isActive (supercedes activeURL checking)
+    isActive: React.PropTypes.bool,
+
     // optionally check for active against the activeURL
     activeURL: React.PropTypes.string,
 
@@ -399,6 +402,7 @@ var LinkTo = React.createClass({
   getDefaultProps: function () {
     return {
       params: [],
+      isActive: null,
       activeURL: null,
       matchPartial: true,
       className: ''
@@ -411,8 +415,13 @@ var LinkTo = React.createClass({
     var extraProps = {};
     var url = Router.getURLFromRoute(this.props.route, this.props.params);
     var classes = this.props.className ? this.props.className : '';
-    var isActive = this.props.activeURL !== null &&
-        Router.isMatch(url, this.props.activeURL, this.props.matchPartial);
+    var isActive = false;
+
+    if (this.props.isActive !== null) {
+      isActive = this.props.isActive;
+    } else if (this.props.activeURL !== null) {
+      isActive = Router.isMatch(url, this.props.activeURL, this.props.matchPartial);
+    }
 
     if (isActive) {
       classes += ' active';
