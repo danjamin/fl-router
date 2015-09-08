@@ -31,6 +31,7 @@
     "sinon": "^1.15.4"
   },
   "dependencies": {
+    "es6-promise": "^3.0.2",
     "fl-store": "https://github.com/danjamin/fl-store/tarball/0.1.2",
     "flux": "^2.0.3",
     "location-bar": "^2.0.0",

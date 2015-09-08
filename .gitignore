@@ -4,3 +4,4 @@ npm-debug.log
 tmp
 .DS_Store
 _transpiled
+*.swp
