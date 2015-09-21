@@ -17,7 +17,7 @@ $ npm install --save https://github.com/danjamin/fl-router.git#0.1.9
 ### install dependencies
 
 ```sh
-$ npm install -g babel mocha broccoli-cli
+$ npm install -g babel mocha
 ```
 
 ```sh
@@ -32,22 +32,8 @@ $ npm run lint
 
 ### testing
 
-Transpile and test once:
-
 ```sh
 $ npm test
-```
-
-Watch transpilation:
-
-```sh
-$ ./scripts/transpile watch
-```
-
-Run test after each change:
-
-```sh
-$ ./scripts/test
 ```
 
 Optionally, you can filter the tests:
@@ -56,11 +42,9 @@ Optionally, you can filter the tests:
 $ ./scripts/test RouteStore
 ```
 
-### building
+### publishing
 
-```sh
-$ npm run build
-```
+For now:
 
 update **package.json** version
 tag semver and push to origin

@@ -1,14 +1,15 @@
 {
-  "esnext": true,
+  "esnext": false,
   "enforceall": true,
   "bitwise": false,
   "nocomma": false,
   "indent": 2,
   "singleGroups": false,
   "unused": "vars",
+  "camelcase": false,
   "globals": {
-    "document": false,
-    "window": false,
+    "require": false,
+    "module": false,
     "console": false,
     "setTimeout": false
   }

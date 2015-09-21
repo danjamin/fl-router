@@ -1,4 +1,5 @@
 --reporter spec
 --ui bdd
+--compilers js:babel/register
 init-jsdom.js
-_transpiled/**/*.spec.js
+lib/**/*.spec.js

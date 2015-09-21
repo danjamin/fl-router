@@ -1,4 +1,4 @@
-/* global require, global */
+/* global document, global */
 
 var jsdom = require('jsdom').jsdom;
 
