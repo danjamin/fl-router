@@ -19,6 +19,9 @@
   ],
   "author": "danjamin <e051ba3be@gmail.com>",
   "license": "MIT",
+   "engines": {
+    "npm": ">=2.0 <3.0"
+  },
   "devDependencies": {
     "babel-core": "^5.7.4",
     "broccoli": "^0.16.4",

@@ -1,5 +1,7 @@
 ---
 language: node_js
+node_js:
+  - "4.2"
 
 sudo: false
 
@@ -8,7 +10,7 @@ cache:
     - node_modules
 
 install:
-  - npm install -g babel mocha
+  - npm install -g mocha@2.3.3 babel@5.8.29
   - npm install
 
 script:

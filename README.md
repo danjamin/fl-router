@@ -14,10 +14,14 @@ $ npm install --save https://github.com/danjamin/fl-router.git#0.1.9
 
 ## DEVELOP
 
+### pre-reqs
+
+Install node packed with npm >=2.0 and <3.0
+
 ### install dependencies
 
 ```sh
-$ npm install -g babel mocha broccoli-cli
+$ npm install -g mocha@2.3.3 babel@5.8.29 broccoli-cli@1.0.0
 ```
 
 ```sh
